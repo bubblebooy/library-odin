@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Library</title>
+</head>
+<body>
+  <form id="addbook">
+    <label for="btitle">Book title:</label>
+    <input type="text" id="btitle">
+    <label for="bauthor">Book author:</label>
+    <input type="text" id="bauthor">
+    <label for="bnumber">Number of pages:</label>
+    <input type="number" id="bnumber">
+    
+    <input type="checkbox" name="read" id="bread">
+    <label for="bread">I've read this.</label>
+    <button type="submit">Submit</button>
+  </form>
+
+  <table id="bookslist">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Read?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Harry Potther</td>
+        <td>JK Rwoling</td>
+        <td>567</td>
+      </tr>
+    </tbody>
+  </table>
+ <script src="app.js"></script> 
+</body>
+</html>
