@@ -56,6 +56,7 @@ bookslist.addEventListener('click', function (e) {
 
 function addBook(book) {
   myLibary.push(book);
+  localStorage.setItem('books', JSON.stringify(myLibary));
 }
 
 function deleteBook(id) {
@@ -64,14 +65,16 @@ function deleteBook(id) {
       myLibary.splice(index, 1);
     }
   })
+  localStorage.setItem('books', JSON.stringify(myLibary));
 }
 
 function changeRead(id) {
   myLibary.forEach(function (book) {
     if (book.id == id) {
-      book.read = !book.read;
+      book.read = !(book.read);
     }
   })
+  localStorage.setItem('books', JSON.stringify(myLibary));
 }
 
 function viewAddBook(book) {
@@ -110,9 +113,16 @@ function showMessage(className, message) {
     document.querySelector('.callout').remove();
   } , 4000)
 }
-let lorem = new Book('Title', 'authooor', 11134, true);
 
-viewAddBook(lorem);
-viewAddBook(lorem);
-viewAddBook(lorem);
-viewAddBook(lorem);
+function showBookFromLS() {
+  if(localStorage.getItem('books') === null) {
+    myLibary = [];
+  } else {
+    myLibary = JSON.parse(localStorage.getItem('books'));
+  }
+  myLibary.forEach(function (book){
+    viewAddBook(book);
+  })
+}
+
+showBookFromLS();
